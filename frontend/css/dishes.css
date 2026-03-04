@@ -1,0 +1,135 @@
+/* Left Side */
+.restaurant-wrapper {
+  width: calc(100% - 308px);
+}
+
+.restaurant-image {
+  width: 100%;
+  aspect-ratio: 35/ 8;   
+  object-fit: cover;      
+  object-position: center;
+  display: block;
+  border-radius: 0 8px 8px 0;  
+}
+
+.restaurant-title-box {
+  padding-left: 16px;
+  color: black;
+  border-bottom: 15px solid #eee;
+}
+
+.restaurant-title-box h1 {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.restaurant-rating {
+  color: #ff8000;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.content-restaurant-categories {
+  display: flex;
+  gap: 20px;
+  background-color: #eee;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.categorie-tab-title {
+  position: relative;
+  font-size: 22px;
+  font-weight: 600;
+  padding: 0 0 15px 15px;
+  cursor: pointer;
+  color: var(--text_dark);
+  transition: color 0.25s ease;
+}
+
+.categorie-tab-title::after {
+  content: "";
+  position: absolute;
+  left: 15px;
+  bottom: 8px;
+  width: 0;
+  height: 2px;
+  background-color: #ff8000;
+  transition: width 0.3s ease;
+}
+
+.categorie-tab-title:hover {
+  color: #ff8000;
+}
+
+.categorie-tab-title:hover::after {
+  width: 40px;
+}
+.dish-image {
+  width: 100%;
+  aspect-ratio: 35/ 8; 
+  object-fit: cover;      
+  object-position: center;
+  display: block;
+  border-radius: 0 8px 8px 0; 
+}
+
+.dish-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+
+  border-bottom: 1px solid #eee;
+  padding-top: 15px;
+  padding-left: 15px;
+  padding-bottom: 15px;
+}
+.dish-card:hover {
+  transform: translateY(-1px);
+box-shadow: 
+  0 10px 30px rgba(249, 116, 22, 0.132);
+ 
+}
+
+.dish-name {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.dish-description {
+  font-size: 13px;
+  color: #777;
+}
+
+.dish-price {
+  color: #ff8000;
+  font-weight: 500;
+  display: block;
+  margin-top: 6px;
+}
+
+.add-to-basket-button {
+  width: 30px;
+  height: 25px;
+  border: 1px solid #ff8000;
+  background: white;
+  color: #ff8000;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.add-to-basket-button:hover {
+  transform: translateY(-1px);
+ 
+}
+/* Left Side Responsive */
+@media (max-width: 700px) {
+  .restaurant-wrapper {
+    width: 100%;
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 80px; 
+  }
+}

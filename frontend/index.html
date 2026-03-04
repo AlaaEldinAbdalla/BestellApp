@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BestellApp</title>
+  <link rel="icon" href=" ./assets/favicon/favicon.png" />
+
+  <script src="script.js" defer></script>
+  <script src="./js/dishes.js" defer></script>
+  <script src="./js/basket.js" defer></script>
+  <script src="./js/db.js" defer></script>
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="./css/basket.css">
+  <link rel="stylesheet" href="./css/dishes.css">
+</head>
+
+<body onload="init()">
+  <!-- 1️⃣ Header -->
+  <header class="page-header">
+    <div class="page-logo">BestellApp</div>
+  </header>
+
+  <!-- 2️⃣ Main Content -->
+  <main class="page-wrapper">
+
+    <!-- 1 Left Side -->
+    <section class="restaurant-wrapper">
+
+      <div class="content-restaurant">
+
+        <div class="content-restaurant-head">
+          <img class="restaurant-image" src="./assets/img/anilsharma26-food.jpg" alt="Restaurant" />
+        </div>
+
+        <div class="restaurant-title-box">
+          <h1>Paradise Noodles</h1>
+          <div class="restaurant-rating">Bewertung (4,2 von 5 Sternen)</div>
+        </div>
+
+        <div class="content-restaurant-categories">
+          <span class="categorie-tab-title">🍜Hauptgerichte</span>
+        </div>
+
+        <div class="content-restaurant-dishCards">
+          <img class="dish-image" src="./assets/img/ultraworldjy-asian.jpg" alt="Gericht" />
+
+          <div id="dishCard">
+            <!-- Dish cards will be rendered here -->
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- 2 Right Side -->
+    <section class="basket-wrapper">
+
+      <div class="basket-content">
+
+        <header class="basket-header">
+          <div>🧺 Warenkorb</div>
+        </header>
+
+        <div id="basketContainer"></div>
+
+        <footer class="basket-footer">
+
+          <div>Zwischensumme: <span id="subtotal">0,00€</span></div>
+          <div>Lieferkosten: <span id="deliveryCosts">0,00€</span></div>
+          <div>
+            Gesamtpreis: <span id="totalPriceWithDelivery">0,00€</span>
+          </div>
+
+        </footer>
+
+      </div>
+
+    </section>
+
+    <!-- 3 Right Side Responsive -->
+    <section id="basketResponsive" class="basket-responsive">
+
+      <div class="basket-content">
+
+        <header class="basket-header">
+          <div id="basketToggleButton" class="basket-toggle-button" onclick="toggleBasket()">
+            🧺 Warenkorb
+          </div>
+        </header>
+
+        <div id="basketContainerResponsive">
+          <!-- Hier kommen die Basket-Items dynamisch per JS rein -->
+        </div>
+
+        <footer class="basket-footer">
+
+          <div>Zwischensumme: <span id="subtotalResponsive">0,00€</span></div>
+          <div>Lieferkosten: <span id="deliveryCostsResponsive">0,00€</span></div>
+          <div>Gesamtpreis: <span id="totalPriceWithDeliveryResponsive">0,00€</span></div>
+
+        </footer>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- 3️⃣ Footer -->
+  <footer class="page-footer">
+    <div class="footer-content">
+       <p class="page-footer-copy">&copy; 2026 BestellApp. Alle Rechte vorbehalten.</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>
