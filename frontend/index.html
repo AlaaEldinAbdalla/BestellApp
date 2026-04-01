@@ -1,122 +1,210 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BestellApp</title>
-  <link rel="icon" href=" ./assets/favicon/favicon.png" />
+  <link rel="icon" href="./assets/favicon/favicon.png" />
 
-  <script src="script.js" defer></script>
-  <script src="./js/dishes.js" defer></script>
-  <script src="./js/basket.js" defer></script>
-  <script src="./js/db.js" defer></script>
+  <!-- CSS  -->
+  <link rel="stylesheet" href="./css/base/reset.css">
+  <link rel="stylesheet" href="./css/base/variables.css">
+  <link rel="stylesheet" href="./css/base/typography.css">
 
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="./css/basket.css">
-  <link rel="stylesheet" href="./css/dishes.css">
+  <link rel="stylesheet" href="./css/basket/basket.css">
+  <link rel="stylesheet" href="./css/basket/basket-responsive.css">
+  <link rel="stylesheet" href="./css/basket/basket-message.css">
+  <link rel="stylesheet" href="./css/basket/basket-item.css">
+  <link rel="stylesheet" href="./css/basket/basket-footer.css">
+
+  <link rel="stylesheet" href="./css/restaurant/restaurant.css">
+  <link rel="stylesheet" href="./css/restaurant/restaurant-responsive.css">
+  <link rel="stylesheet" href="./css/restaurant/restaurant-dish.css">
+  
+  <link rel="stylesheet" href="./css/style.css">
+
+  <!-- JS -->
+   <script src="./js/restaurant/render/dishes.js" defer></script>
+    <script src="./js/restaurant/template/dish-template.js" defer></script>
+
+    <script src="./js/component/add-to-basket.js" defer></script>
+
+    <script src="./js/basket/render/basket.js" defer></script>
+    <script src="./js/basket/db/basket-db.js" defer></script>
+    <script src="./js/basket/render/basket-responsive.js" defer></script>
+
+    <script src="./js/basket/service/complete-order.js" defer></script>
+    <script src="./js/basket/service/calculation.js" defer></script>
+    <script src="./js/basket/service/quantity.js" defer></script>
+
+    <script src="./js/basket/template/basket-footer-template.js" defer></script>
+    <script src="./js/basket/template/basket-item-template.js" defer></script>
+    <script src="./js/basket/template/basket-message-template.js" defer></script>
+
+    <script src="./js/basket/utils/basket-utils.js" defer></script>
+    <script src="./js/basket/utils/basket-responsive-utils.js" defer></script>
+
+
+
+  <script src="./js/script.js" defer></script>
+
 </head>
 
 <body onload="init()">
   <!-- 1️⃣ Header -->
   <header class="page-header">
-    <div class="page-logo">BestellApp</div>
+
+    <nav class="navbar">
+      <div class="page-logo">BestellApp</div>
+    </nav>
+
   </header>
 
-  <!-- 2️⃣ Main Content -->
-  <main class="page-wrapper">
+  <!-- 3️⃣ Layout -->
+  <main class="layout">
 
-    <!-- 1 Left Side -->
-    <section class="restaurant-wrapper">
+    <!-- 3.1 Restaurant Container -->
+    <section class="restaurant">
+      <div class="restaurant__content">
 
-      <div class="content-restaurant">
+        <!-- 1 Hero Section -->
+        <div class="hero">
+          <div class="hero-content">
+            <h1 class="hero-title">Paradise Noodles</h1>
 
-        <div class="content-restaurant-head">
-          <img class="restaurant-image" src="./assets/img/anilsharma26-food.jpg" alt="Restaurant" />
+            <div class="hero-info">
+
+              <span class="restaurant-rating" aria-label="Bewertung">⭐ 4,2 von 5 Sternen</span>
+              <span class="delivery" aria-label="Lieferzeit">⏱️ 30 min Lieferzeit</span>
+            </div>
+
+          </div>
         </div>
 
-        <div class="restaurant-title-box">
-          <h1>Paradise Noodles</h1>
-          <div class="restaurant-rating">Bewertung (4,2 von 5 Sternen)</div>
-        </div>
+        <!-- 2 Menu Section -->
+        <div class="menu">
 
-        <div class="content-restaurant-categories">
-          <span class="categorie-tab-title">🍜Hauptgerichte</span>
-        </div>
+          <div class="categories">
+            <div class="category-cards">
 
-        <div class="content-restaurant-dishCards">
-          <img class="dish-image" src="./assets/img/ultraworldjy-asian.jpg" alt="Gericht" />
+              <div class="category-card active">
+                <h3>Hauptgerichte</h3>
+              </div>
 
-          <div id="dishCard">
-            <!-- Dish cards will be rendered here -->
+            </div>
           </div>
 
+          <div class="dish-cards-container">
+            <div id="dishContainer"></div>
+          </div>
         </div>
 
       </div>
 
     </section>
 
-    <!-- 2 Right Side -->
-    <section class="basket-wrapper">
+    <!-- 3.2 Basket Container-->
+    <section class="basket">
 
-      <div class="basket-content">
+      <!-- 1 Basket Content -->
+      <div class="basket__content">
 
+        <!-- 1 Basket Header -->
         <header class="basket-header">
-          <div>🧺 Warenkorb</div>
+          <h2 class="basket-title">Warenkorb</h2>
         </header>
 
-        <div id="basketContainer"></div>
+        <!-- 2 Basket Body -->
+        <main class="basket-body">
+          <div class="empty-basket-container"></div>
+          <div id="basketContainer"></div>
+        </main>
 
-        <footer class="basket-footer">
+        <!-- 3 Basket Footer -->
+        <footer id="basketFooterContainer"></footer>
 
-          <div>Zwischensumme: <span id="subtotal">0,00€</span></div>
-          <div>Lieferkosten: <span id="deliveryCosts">0,00€</span></div>
-          <div>
-            Gesamtpreis: <span id="totalPriceWithDelivery">0,00€</span>
-          </div>
+        <!-- 4 Order Options -->
+        <div class="order-options">
 
-        </footer>
+          <button id="deliveryBtn" class="order-toggle-btn is-active" onclick="setOrderMode('delivery')">
+            Liefern
+          </button>
+
+          <button id="pickupBtn" class="order-toggle-btn" onclick="setOrderMode('pickup')">
+            Abholen
+          </button>
+
+        </div>
+        <!-- 5 Order Button -->
+        <button class="order-btn " id="orderBtn" onclick="completeOrder()" disabled>
+          Jetzt Bestellen
+        </button>
 
       </div>
 
+
     </section>
 
-    <!-- 3 Right Side Responsive -->
-    <section id="basketResponsive" class="basket-responsive">
+    <!-- 2 Order Dialog -->
+    <div id="orderDialog" class="order-dialog">
+      <div class="order-dialog__content">
+        <h2 class="order-dialog-title"> ✅ Bestellung erfolgreich </h2>
+        <p class="order-dialog-text" id="orderDialogText"></p>
 
-      <div class="basket-content">
+        <button class="order-dialog-button" onclick="closeOrderDialog()">Schließen</button>
+      </div>
+    </div>
+
+    <!-- 3.3 Mobile Basket -->
+    <section id="basketMobile" class="basket-mobile is-closed">
+      <div class="basket__content">
 
         <header class="basket-header">
-          <div id="basketToggleButton" class="basket-toggle-button" onclick="toggleBasket()">
-            🧺 Warenkorb
-          </div>
+          <h2 class="basket-toggle-btn" onclick="toggleBasketMobile()">Warenkorb</h2>
         </header>
 
-        <div id="basketContainerResponsive">
-          <!-- Hier kommen die Basket-Items dynamisch per JS rein -->
+        <main class="basket-body">
+          <div class="empty-basket-mobile-container"></div>
+          <div id="basketMobileContainer"></div>
+        </main>
+
+        <footer id="basketFooterMobileContainer"></footer>
+
+        <div class="order-options">
+          <button id="deliveryBtnMobile" class="order-toggle-btn is-active" onclick="setOrderMode('delivery')">
+            Liefern
+          </button>
+
+          <button id="pickupBtnMobile" class="order-toggle-btn" onclick="setOrderMode('pickup')">
+            Abholen
+          </button>
         </div>
 
-        <footer class="basket-footer">
-
-          <div>Zwischensumme: <span id="subtotalResponsive">0,00€</span></div>
-          <div>Lieferkosten: <span id="deliveryCostsResponsive">0,00€</span></div>
-          <div>Gesamtpreis: <span id="totalPriceWithDeliveryResponsive">0,00€</span></div>
-
-        </footer>
+        <button class="order-btn" id="orderBtnMobile" onclick="completeOrder()" disabled>
+          Jetzt Bestellen
+        </button>
 
       </div>
-
     </section>
+
+
+
+
+
 
   </main>
 
-  <!-- 3️⃣ Footer -->
+
+
+  <!-- 4️⃣ Footer -->
   <footer class="page-footer">
-    <div class="footer-content">
-       <p class="page-footer-copy">&copy; 2026 BestellApp. Alle Rechte vorbehalten.</p>
+    <div class="footer__content">
+      <p class="page-footer-copy">&copy; 2026 AAM. Alle Rechte vorbehalten.</p>
     </div>
   </footer>
+
 
 </body>
 

@@ -1,0 +1,82 @@
+.dish-cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 5px;
+}
+
+.dish-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 15px 0px;
+
+  background: #fff;
+  border: 1px solid #f0f0f0;
+
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
+
+  transition: all 0.2s ease;
+}
+.dish-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 30px rgba(249, 116, 22, 0.132);
+}
+.dish-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 15px;
+}
+
+.dish-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dish-name {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #333;
+}
+
+.dish-description {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.dish-action {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-right: 5px;
+}
+
+.add-btn-to-basket {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: none;
+  background: var(--primary-orange, #FF6B35);
+  color: var(--text_light, #ffffff);
+  font-size: 1.2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.add-btn-to-basket:hover {
+  background: #e67300;
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(255, 128, 0, 0.4);
+}
+.add-btn-to-basket:active {
+  transform: scale(0.95);
+}

@@ -1,4 +1,3 @@
-// Global 
 function init() {
   renderDishes();
   loadBasket();  

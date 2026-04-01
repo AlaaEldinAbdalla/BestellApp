@@ -1,0 +1,47 @@
+/* 1️⃣ Header */
+.page-header {
+background: #FF6B35;
+padding: 25px;
+}
+.navbar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.page-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  margin-left: 5px;
+}
+
+/* Header Responsive */
+@media (max-width: 800px) {
+  .page-header {
+    padding: 10px;
+  }
+}
+/*  2️⃣ Layout */
+.layout {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+}
+/* 3️⃣ Footer */
+.page-footer {
+  background: #FF6B35;
+padding: 25px;
+  text-align: center;
+}
+
+.page-footer-copy {
+  color: #ffffff;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+/* Footer Responsive */
+@media (max-width: 800px) {
+  .page-footer {
+    padding: 10px;
+  }
+}
