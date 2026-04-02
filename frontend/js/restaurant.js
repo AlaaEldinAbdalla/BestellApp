@@ -1,4 +1,3 @@
-
 /* 1️⃣
  */
 let dishes = [
@@ -54,4 +53,18 @@ function renderDishes() {
     dishContainerRef.innerHTML += dishTemplate(selectedDish, dishIndex);
   }
   
+}
+
+/* 3️⃣
+*/
+function addDishToBasket(dishIndex) {
+  const selectedDish = dishes[dishIndex];
+  const existingItem = findBasketItem(selectedDish);
+
+  if (existingItem) { existingItem.amount++;
+  } else {
+    addNewItemToBasket(selectedDish);
+  }
+   
+  renderBasket();
 }

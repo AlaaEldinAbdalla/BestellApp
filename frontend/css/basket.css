@@ -1,0 +1,359 @@
+/* Basket Container*/
+.basket {
+  width: 300px;
+  flex-grow: 1;
+
+padding: 20px;
+} 
+.basket__content {
+  position: sticky;
+  top: 0;
+  width: 100%;
+}
+.basket-title {
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 8px 0;
+  border-bottom: 1px solid #FF6B35;
+}
+.basket-body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  min-height: 120px;
+}
+.basket-status-container {
+  position: relative;
+  text-align: center;
+  padding: 16px;
+  border-radius: 8px;
+  background-color: #fff4e0;
+  color: #555;
+  max-width: 320px;
+  margin: 0 auto 16px auto;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.basket-status-container.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Order Options */
+.order-options {
+  display: flex;
+  border-radius: 10px;
+  margin-top: 12px;
+}
+
+.order-toggle-btn {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background: #f3f3f3;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.order-toggle-btn.is-active {
+  background: linear-gradient(135deg, #3a312b, #1f1a16);
+  color: #ffffff;
+}
+
+.order-toggle-btn:not(.is-active):hover {
+  background: #e6e6e6;
+}
+
+/* Order Button */
+.order-btn {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  border: none;
+
+  background: var(--primary-orange, #FF6B35);
+  color: var(--text_light, #ffffff);
+  cursor: pointer;
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 6px 14px rgba(255, 122, 0, 0.3);
+}
+.order-btn:hover:enabled {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(255, 122, 0, 0.4);
+}
+.order-btn:disabled {
+  background: #ffd2a6;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+/* Order Dialog */
+.order-dialog {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+}
+
+.order-dialog.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.order-dialog__content {
+  background: #ffffff;
+  padding: 24px 20px;
+  border-radius: 12px;
+  text-align: center;
+  width: 280px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  animation: modalFadeIn 0.25s ease;
+}
+
+.order-dialog-title {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #2e2a27;
+}
+
+.order-dialog-text {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 16px;
+}
+
+.order-dialog-button {
+  width: 100%;
+  padding: 10px;
+  background: var(--primary-orange, #FF6B35);
+  color: var(--text_light, #ffffff);
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.order-dialog-button:hover {
+  background: var(--primary-orange, #FF6B35);
+}
+/* Basket Item */
+.basket-item {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+}
+
+.basket-item-name {
+  font-size: 0.95rem;
+  color: #2e2a27;
+}
+
+.basket-item-controls-row {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+  gap: 20px;
+}
+
+/* + -  Container */
+.basket-item-quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 128, 0, 0.1);
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+
+.basket-btn {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: white;
+  color: #ff8000;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: all 0.2s ease;
+}
+.basket-btn:hover {
+  background: #ff8000;
+  color: white;
+  transform: scale(1.1);
+}
+.basket-btn:active {
+  transform: scale(0.95);
+}
+.basket-item-amount {
+  min-width: 20px;
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.basket-item-price {
+  margin-left: auto;
+  margin-right: 10px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #222;
+}
+
+.basket-btn.delete {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: transparent;
+  color: #ff8000;
+  font-size: 1.1rem;
+  border: 2px solid #ff8000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.basket-btn.delete:hover {
+  background: #ff8000;
+  color: white;
+  transform: scale(1.1);
+}
+/* Basket Footer */
+.basket-footer {
+  padding: 12px 16px;
+  border-top: 1px solid #eee;
+  background-color: #fafafa;
+  transition: opacity 0.2s, transform 0.2s;
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+}
+
+.basket-footer__content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.basket-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  color: #333;
+}
+
+.basket-row.basket-total {
+  font-weight: 600;
+  font-size: 1.05rem;
+  border-top: 1px solid #ddd;
+  padding-top: 6px;
+}
+
+/* Basket Message */
+.empty-message {
+  text-align: center;
+  padding:20px;
+
+  color: #333;
+  font-size: 1rem;
+  line-height: 1.5;
+
+
+}
+  .order-message {
+  padding: 12px;
+  background: #e8f5e9;
+  color: #2e7d32;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 500;
+}
+.pickup-message {
+  padding: 12px;
+  background: #e3f2fd;
+  color: #2e7d32;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Basket responsive */
+.basket-mobile {
+  display: none;
+}
+
+
+@media (max-width: 880px) {
+  .basket {
+    display: none;
+  }
+
+  .basket-mobile {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    height: 100vh; 
+    background-color: white;
+
+    transform: translateY(calc(100% - 50px));
+    transition: transform 0.3s ease;
+
+    z-index: 999;
+  }
+
+  .basket-mobile.is-open {
+    transform: translateY(0);
+  }
+
+  .basket-mobile.is-closed {
+    transform: translateY(calc(100% - 50px));
+  }
+
+  .basket-toggle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 16px;
+    background-color: var(--background-dark, #121212);
+    color: var(--text_light, #ffffff);
+    text-align: center;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .basket-toggle-btn:hover {
+    background-color: var(--primary-orange, #FF6B35);
+  }
+  .basket-footer__content {
+    padding: 10px;
+  }
+
+
+}
