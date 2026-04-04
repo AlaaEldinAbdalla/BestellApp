@@ -40,36 +40,9 @@ let dishes = [
   },
 ];
 
-/* Gerichte */
-function renderDishes() {
-  const dishContainerRef = document.getElementById("dishContainer");
-
-  dishContainerRef.innerHTML = "";
-
-  for (let dishIndex = 0; dishIndex < dishes.length; dishIndex++) {
-    const selectedDish = dishes[dishIndex];
-    dishContainerRef.innerHTML += dishTemplate(selectedDish, dishIndex);
-  }
-  
-}
-
-/*  Gericht in den Warenkorb*/
-function addDishToBasket(dishIndex) {
-  const selectedDish = dishes[dishIndex];
-  const existingItem = findBasketItem(selectedDish);
-
-  if (existingItem) { existingItem.amount++;
-  } else {
-    addNewItemToBasket(selectedDish);
-  }
-   
-  renderBasket();
-}
-/*  Warenkorb speichern */
 function saveBasket() {
   localStorage.setItem("basket", JSON.stringify(basket));
 }
-/*  Warenkorb laden */
 
 function loadBasket() {
   const savedBasket = localStorage.getItem("basket");
@@ -78,3 +51,6 @@ function loadBasket() {
     basket = JSON.parse(savedBasket);
   }
 }
+
+
+

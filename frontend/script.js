@@ -1,8 +1,3 @@
-function init() {
-  renderDishes();
-  loadBasket();
-  renderBasket();
-}
 
 let basket = [];
 let subtotal = 0;
@@ -10,7 +5,36 @@ let deliveryCost = 2.5;
 let totalPrice = 0;
 let orderMode = "delivery";
 
-/* Warenkorb */
+function init() {
+  renderDishes();
+  loadBasket();
+  renderBasket();
+}
+
+function renderDishes() {
+  const dishContainerRef = document.getElementById("dishContainer");
+
+  dishContainerRef.innerHTML = "";
+
+  for (let dishIndex = 0; dishIndex < dishes.length; dishIndex++) {
+    const selectedDish = dishes[dishIndex];
+    dishContainerRef.innerHTML += dishTemplate(selectedDish, dishIndex);
+  }
+}
+
+function addDishToBasket(dishIndex) {
+  const selectedDish = dishes[dishIndex];
+  const existingItem = findBasketItem(selectedDish);
+
+  if (existingItem) {
+    existingItem.amount++;
+  } else {
+    addNewItemToBasket(selectedDish);
+  }
+
+  renderBasket();
+}
+
 function renderBasket() {
   calculateTotalPrice();
 
@@ -56,7 +80,6 @@ function setBasketFooter() {
   );
 }
 
-/* Warenkorb Responsiv */
 function renderBasketMobile() {
   setBasketMessageMobile();
   setBasketItemsMobile();
@@ -96,7 +119,6 @@ function setBasketFooterMobile() {
   );
 }
 
-/* Warenwert berechnen */
 function calculateSubtotal() {
   subtotal = 0;
 
@@ -108,7 +130,6 @@ function calculateSubtotal() {
   return subtotal;
 }
 
-/* Lieferkosten berechnen */
 function calculateDeliveryCost() {
   if (basket.length === 0) {
     return 0;
@@ -121,14 +142,12 @@ function calculateDeliveryCost() {
   return 2.5;
 }
 
-/* Gesamtpreis berechnen */
 function calculateTotalPrice() {
   subtotal = calculateSubtotal();
   deliveryCost = calculateDeliveryCost();
   totalPrice = subtotal + deliveryCost;
 }
 
-/* Artikel zum Warenkorb hinzufügen */
 function findBasketItem(selectedDish) {
   for (let itemIndex = 0; itemIndex < basket.length; itemIndex++) {
     const currentItem = basket[itemIndex];
@@ -140,6 +159,7 @@ function findBasketItem(selectedDish) {
 
   return false;
 }
+
 function addNewItemToBasket(selectedDish) {
   const newBasketItem = {
     name: selectedDish.name,
@@ -149,7 +169,7 @@ function addNewItemToBasket(selectedDish) {
 
   basket.push(newBasketItem);
 }
-/* Menge und  Artikel im Warenkorb bearbeiten */
+
 function increaseAmount(itemIndex) {
   basket[itemIndex].amount++;
   renderBasket();
@@ -170,7 +190,6 @@ function deleteFromBasket(itemIndex) {
   renderBasket();
 }
 
-/* Bestellmodus auswählen */
 function setOrderMode(mode) {
   orderMode = mode;
 
@@ -179,16 +198,21 @@ function setOrderMode(mode) {
   updateOrderButton();
   renderBasket();
 }
+
+function resetOrderButtons(deliveryBtnRef,pickupBtnRef,deliveryBtnMobileRef,pickupBtnMobileRef) {
+  deliveryBtnRef.classList.remove("is-active");
+  pickupBtnRef.classList.remove("is-active");
+  deliveryBtnMobileRef.classList.remove("is-active");
+  pickupBtnMobileRef.classList.remove("is-active");
+}
+
 function updateOrderButtons(mode) {
   const deliveryBtnRef = document.getElementById("deliveryBtn");
   const pickupBtnRef = document.getElementById("pickupBtn");
   const deliveryBtnMobileRef = document.getElementById("deliveryBtnMobile");
   const pickupBtnMobileRef = document.getElementById("pickupBtnMobile");
 
-  deliveryBtnRef.classList.remove("is-active");
-  pickupBtnRef.classList.remove("is-active");
-  deliveryBtnMobileRef.classList.remove("is-active");
-  pickupBtnMobileRef.classList.remove("is-active");
+  resetOrderButtons(deliveryBtnRef,pickupBtnRef,deliveryBtnMobileRef,pickupBtnMobileRef);
 
   if (mode === "delivery") {
     deliveryBtnRef.classList.add("is-active");
@@ -198,7 +222,7 @@ function updateOrderButtons(mode) {
     pickupBtnMobileRef.classList.add("is-active");
   }
 }
-/* Bestellbutton aktivieren/deaktivieren */
+
 function updateOrderButton() {
   const orderBtn = document.getElementById("orderBtn");
   const orderBtnMobile = document.getElementById("orderBtnMobile");
@@ -212,13 +236,12 @@ function updateOrderButton() {
   }
 }
 
-/* Warenkorb Responsiv öffnen/schließen */
 function toggleBasketMobile() {
   const basketMobileContainerRef = document.getElementById("basketMobile");
   basketMobileContainerRef.classList.toggle("is-open");
   basketMobileContainerRef.classList.toggle("is-closed");
 }
-/* Bestellung abschließen */
+
 function completeOrder() {
   if (basket.length === 0) {
     return;
@@ -230,6 +253,7 @@ function completeOrder() {
   renderBasket();
   updateOrderButton();
 }
+
 function showOrderDialog() {
   const orderDialogContainerRef = document.getElementById("orderDialog");
   const orderDialogTextRef = document.getElementById("orderDialogText");
@@ -242,6 +266,7 @@ function showOrderDialog() {
 
   orderDialogContainerRef.classList.add("active");
 }
+
 function closeOrderDialog() {
   const orderDialogContainerRef = document.getElementById("orderDialog");
   orderDialogContainerRef.classList.remove("active");

@@ -1,5 +1,4 @@
-/* 1️⃣
- */
+
 function dishTemplate(selectedDish, dishIndex) {
   return `
     <div class="dish-card">
@@ -17,8 +16,6 @@ function dishTemplate(selectedDish, dishIndex) {
   `;
 }
 
-/* 2️⃣
- */
 function emptyMessageTemplate() {
   return `
           <p class="empty-message">
@@ -27,8 +24,6 @@ function emptyMessageTemplate() {
   `;
 }
 
-/* 3️⃣
- */
 function basketItemTemplate(selectedItem, itemIndex) {
   return `
     <div class="basket-item">
@@ -53,8 +48,6 @@ function basketItemTemplate(selectedItem, itemIndex) {
   `;
 }
 
-/* 4️⃣
- */
 function basketFooterTemplate(subtotal, deliveryCost, totalPrice) {
   return `
     <div class="basket-footer__content">
@@ -78,8 +71,6 @@ function basketFooterTemplate(subtotal, deliveryCost, totalPrice) {
   `;
 }
 
-/* 6️⃣
- */
 function deliveryMessageTemplate() {
   return `
     <p class="order-message">
@@ -88,8 +79,6 @@ function deliveryMessageTemplate() {
   `;
 }
 
-/* 3️⃣
- */
 function pickupMessageTemplate() {
   return `
     <p class="pickup-message">

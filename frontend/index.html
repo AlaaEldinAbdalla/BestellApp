@@ -21,27 +21,22 @@
 </head>
 
 <body onload="init()">
-  <!-- 1️⃣ Header -->
+  
   <header class="page-header">
     <div class="page-header__content">
 
-   
+      <nav class="navbar">
+        <div class="page-logo">BestellApp</div>
+      </nav>
 
-    <nav class="navbar">
-      <div class="page-logo">BestellApp</div>
-    </nav>
-
- </div>
+    </div>
   </header>
 
-  <!-- 3️⃣ Layout -->
   <main class="layout">
 
-    <!-- 3.1 Restaurant Container -->
     <section class="restaurant">
       <div class="restaurant__content">
 
-        <!-- 1 Hero Section -->
         <div class="hero">
           <div class="hero-content">
             <h1 class="hero-title">Paradise Noodles</h1>
@@ -55,7 +50,6 @@
           </div>
         </div>
 
-        <!-- 2 Menu Section -->
         <div class="menu">
 
           <div class="categories">
@@ -77,27 +71,21 @@
 
     </section>
 
-    <!-- 3.2 Basket Container-->
     <section class="basket">
 
-      <!-- 1 Basket Content -->
       <div class="basket__content">
 
-        <!-- 1 Basket Header -->
         <header class="basket-header">
           <h2 class="basket-title">Warenkorb</h2>
         </header>
 
-        <!-- 2 Basket Body -->
         <main class="basket-body">
           <div class="empty-basket-container"></div>
           <div id="basketContainer"></div>
         </main>
 
-        <!-- 3 Basket Footer -->
         <footer id="basketFooterContainer"></footer>
 
-        <!-- 4 Order Options -->
         <div class="order-options">
 
           <button id="deliveryBtn" class="order-toggle-btn is-active" onclick="setOrderMode('delivery')">
@@ -109,17 +97,15 @@
           </button>
 
         </div>
-        <!-- 5 Order Button -->
+
         <button class="order-btn " id="orderBtn" onclick="completeOrder()" disabled>
           Jetzt Bestellen
         </button>
 
       </div>
 
-
     </section>
 
-    <!-- 2 Order Dialog -->
     <div id="orderDialog" class="order-dialog">
       <div class="order-dialog__content">
         <h2 class="order-dialog-title"> ✅ Bestellung erfolgreich </h2>
@@ -129,7 +115,6 @@
       </div>
     </div>
 
-    <!-- 3.3 Mobile Basket -->
     <section id="basketMobile" class="basket-mobile is-closed">
       <div class="basket__content">
 
@@ -161,22 +146,13 @@
       </div>
     </section>
 
-
-
-
-
-
   </main>
 
-
-
-  <!-- 4️⃣ Footer -->
   <footer class="page-footer">
     <div class="page-footer__content">
       <p class="page-footer-copy">&copy; 2026 AAM. Alle Rechte vorbehalten.</p>
     </div>
   </footer>
-
 
 </body>
 

@@ -61,12 +61,15 @@ h3 {
   --prime_red: #ff4b4b;
 }
 
-/* 1️⃣ Header */
+/* Header */
+.page-header {
+  background: var(--primary-orange, #ff6b35);
+}
+
 .page-header__content {
   max-width: 1440px;
   margin: 0 auto;
   width: 100%;
-  background: var(--primary-orange, #ff6b35);
   padding: 25px;
 }
 
@@ -83,25 +86,26 @@ h3 {
   margin-left: 5px;
 }
 
-
-
-/* 2️⃣ Layout */
+/* Layout */
 .layout {
   flex-grow: 1;
   display: flex;
   flex-direction: row;
   max-width: 1440px;
   margin: 0 auto;
-    width: 100%;
+  width: 100%;
+  background-color: var(--bg-main, #f9fafb);
 }
 
-/* 3️⃣ Footer */
+/* Footer */
+.page-footer {
+  background: var(--primary-orange, #ff6b35);
+}
 
 .page-footer__content {
   max-width: 1440px;
   margin: 0 auto;
   width: 100%;
-  background: var(--primary-orange, #ff6b35);
   padding: 25px;
   text-align: center;
 }
@@ -111,5 +115,3 @@ h3 {
   font-size: 1rem;
   margin-top: 10px;
 }
-
-

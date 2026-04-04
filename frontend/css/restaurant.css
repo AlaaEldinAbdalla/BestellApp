@@ -74,7 +74,7 @@
   box-shadow: 0 4px 12px rgba(255, 128, 0, 0.4);
   border-radius: 8px;
 }
-/* Gerichtskarten */
+
 .dish-cards-container {
   display: flex;
   flex-direction: column;
@@ -157,7 +157,7 @@
 .add-btn-to-basket:active {
   transform: scale(0.95);
 }
-/* Restaurant Responsive */
+
 @media (max-width: 880px) {
   .restaurant {
     width: 100%;
